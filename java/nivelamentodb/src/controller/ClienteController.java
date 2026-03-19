@@ -1,32 +1,26 @@
 package controller;
 
-public class ClienteController{
-    private int idNome;
-    private String nome;
-    private String email;
-    
+import datamodel.Cliente;
+import model.AppDataBase;
 
-    public int getId(){
-        return idNome;
-    }
-    public void setID(){
-        this.idNome = idNome;
-    }
+import java.util.List;
 
-    public String getNome(){
-        return nome;
-    }
-    public void setNome(){
-        this.nome = nome;
+public class ClienteController {
+
+    private AppDataBase db = new AppDataBase();
+
+    public boolean cadastrarCliente(String nome, String email) {
+        Cliente c = new Cliente();
+        c.setNome(nome);
+        c.setEmail(email);
+        return db.inserir(c);
     }
 
-    public String getEmail(){
-        return email;
-    }
-    public void setEmail(){
-        this.email = email;
+    public boolean deletarCliente(int id) {
+        return db.deletar(id);
     }
 
-    
-
+    public List<Cliente> listarTodos() {
+        return db.listar();
+    }
 }
