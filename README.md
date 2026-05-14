@@ -1,2 +1,2 @@
-# java-p
-java classes and sfw projects
+cadastro de clientes com sqlite e java 
+jdbc - java database conector
